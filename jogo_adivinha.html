@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia(n) {
+        return Math.round(Math.random() * n);
+    }    
+
+    function verificaChute() {
+    chute = parseInt(prompt("Tente adivinhar um número entre 0 e 10:"));
+    }
+
+    var numeroPensado = sorteia(10);
+    var chute;
+    console.log(numeroPensado);
+    verificaChute();
+    
+    while (chute != numeroPensado) {
+        if (chute > numeroPensado) {
+            alert("Você errou! Seu chute é maior que o número pensado!");
+            verificaChute()
+        }
+        else if (chute < numeroPensado) {
+            alert("Você errou! Seu chute é menor que o número pensado!");
+            verificaChute()
+        }
+    }
+  
+    if (chute = numeroPensado){
+        alert("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+        mostra("Pressione F5 ou atualize a página para jogar novamente!")
+    }
+</script>
