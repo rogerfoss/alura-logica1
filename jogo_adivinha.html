@@ -16,27 +16,36 @@
     }    
 
     function verificaChute() {
-    chute = parseInt(prompt("Tente adivinhar um número entre 0 e 10:"));
+    chute = parseInt(prompt("Tente adivinhar um número entre 0 e 10. Você tem " + chances +" chances:"));
     }
 
     var numeroPensado = sorteia(10);
     var chute;
+    var tentativas = 1;
+    var chances = 3
     console.log(numeroPensado);
+   
     verificaChute();
     
-    while (chute != numeroPensado) {
+    while (chute != numeroPensado && tentativas < 3) {
         if (chute > numeroPensado) {
             alert("Você errou! Seu chute é maior que o número pensado!");
-            verificaChute()
         }
         else if (chute < numeroPensado) {
             alert("Você errou! Seu chute é menor que o número pensado!");
-            verificaChute()
         }
+        tentativas++
+        chances--
+        verificaChute()
     }
   
-    if (chute = numeroPensado){
+    if (chute == numeroPensado){
         alert("Uau! Você acertou, pois eu pensei no " + numeroPensado);
-        mostra("Pressione F5 ou atualize a página para jogar novamente!")
+    } 
+    else {
+        alert("Que pena, você errou! Eu pensei no " + numeroPensado)
     }
+
+    mostra("Pressione F5 ou atualize a página para jogar novamente!")
+
 </script>
